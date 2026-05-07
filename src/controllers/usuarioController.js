@@ -11,7 +11,7 @@ const { createUsuarioSchema, updateUsuarioSchema } = require('../validations/usu
  * POST /usuarios
  * Crea un nuevo usuario
  */
-const crearUsuario = (req, res) => {
+const crearUsuario = (req, res) => { 
   try {
     // Validamos los datos de entrada
     const { error, value } = createUsuarioSchema.validate(req.body);
