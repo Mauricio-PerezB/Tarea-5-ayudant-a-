@@ -46,7 +46,7 @@ const createUsuarioSchema = Joi.object({
     })
 });
 
-// Esquema para actualizar un usuario (todos los campos opcionales)
+
 const updateUsuarioSchema = Joi.object({
   nombre: Joi.string()
     .alphanum()
