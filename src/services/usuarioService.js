@@ -1,8 +1,7 @@
 /**
  * Servicio de Usuarios
  * Contiene la lógica de negocio para gestionar usuarios
- * 
- * Nota: Actualmente almacenamos en memoria con un array
+ * * Nota: Actualmente almacenamos en memoria con un array
  * Esta semana lo conectaremos a una base de datos real
  */
 
@@ -30,10 +29,8 @@ const crearUsuario = (datosUsuario) => {
  * Obtener todos los usuarios
  * @returns {Array} Array de todos los usuarios
  */
-// TODO: Completa esta función
 const obtenerTodosLosUsuarios = () => {
-  // Ayudita: Solo retorna el array de usuarios
-  // Hazlo simple: return usuarios;
+  return usuarios;
 };
 
 /**
@@ -41,10 +38,8 @@ const obtenerTodosLosUsuarios = () => {
  * @param {Number} id - ID del usuario
  * @returns {Object|null} El usuario encontrado o null
  */
-// TODO: Completa esta función
 const obtenerUsuarioPorId = (id) => {
-  // Ayudita: Usa .find() para buscar en el array
-  // Ejemplo: usuarios.find(usuario => usuario.id === parseInt(id))
+  return usuarios.find(usuario => usuario.id === parseInt(id)) || null;
 };
 
 /**
@@ -53,13 +48,13 @@ const obtenerUsuarioPorId = (id) => {
  * @param {Object} datosActualizados - Campos a actualizar
  * @returns {Object|null} El usuario actualizado o null si no existe
  */
-// TODO: Completa esta función
 const actualizarUsuario = (id, datosActualizados) => {
-  // Ayudita: 
-  // 1. Busca el usuario con .findIndex()
-  // 2. Si no existe, retorna null
-  // 3. Si existe, actualiza los campos: usuarios[index] = { ...usuarios[index], ...datosActualizados }
-  // 4. Retorna el usuario actualizado
+  const index = usuarios.findIndex(usuario => usuario.id === parseInt(id));
+  
+  if (index === -1) return null;
+  
+  usuarios[index] = { ...usuarios[index], ...datosActualizados };
+  return usuarios[index];
 };
 
 /**
